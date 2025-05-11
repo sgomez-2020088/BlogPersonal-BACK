@@ -1,4 +1,4 @@
-import {Router} from 'express';
+import {Router} from 'express'
 import { addPost, updatePost, deletePost, getAllPost } from '../post/post.controller.js'
 import {addPostValidator, updatePostValidator} from '../../helpers/validators.js'
 
