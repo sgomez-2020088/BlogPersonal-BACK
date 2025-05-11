@@ -4,11 +4,11 @@ import express from 'express'
 import morgan from 'morgan'
 import helmet from 'helmet'
 import cors from 'cors'
-import {initializeDatabase} from './initSetup.js';
-import { limiter } from '../middlewares/rate.limit.js';
-import courseRoutes from '../src/course/course.routes.js';
-import postRoutes from '../src/post/post.routes.js';
-import commentRoutes from '../src/comment/comment.routes.js';
+import {initializeDatabase} from './initSetup.js'
+import { limiter } from '../middlewares/rate.limit.js'
+import courseRoutes from '../src/course/course.routes.js'
+import postRoutes from '../src/post/post.routes.js'
+import commentRoutes from '../src/comment/comment.routes.js'
 
 const configs = (app)=>{
     app.use(express.json())
@@ -20,7 +20,6 @@ const configs = (app)=>{
 }
 
 const routes = (app)=>{
-    
     app.use('/v1/course', courseRoutes)
     app.use('/v1/post', postRoutes)
     app.use('/v1/commentary', commentRoutes)
