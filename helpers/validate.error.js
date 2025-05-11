@@ -8,7 +8,7 @@ export const validateErrors = (req, res, next) =>{
         //return res.status(400).send(errors.array());
         return next(errors);
     }
-    next();
+    next()
 }
 
 export const validateErrorWithoutImg = (req, res, next)=>{
