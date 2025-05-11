@@ -1,7 +1,6 @@
 import Comment from '../comment/comment.model.js'
 import Post from '../post/post.model.js'
 
-
 export const addCommentary = async(req, res)=>{
     try{
 
