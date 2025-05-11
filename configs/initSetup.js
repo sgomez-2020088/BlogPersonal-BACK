@@ -1,4 +1,4 @@
-import Course from '../src/course/course.model.js';
+import Course from '../src/course/course.model.js'
 
 export const initializeDatabase = async () => {
     try {
@@ -11,7 +11,7 @@ export const initializeDatabase = async () => {
             })
 
             await defaultCourse.save()
-            console.log('Default course created succesfully');
+            console.log('Default course created succesfully')
         } else {
             console.log('Default course already exist')
         }
