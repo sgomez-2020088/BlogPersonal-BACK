@@ -36,7 +36,7 @@ export const updateCourse = async (req, res) => {
         const { id } = req.body
         const { name } = req.body
 
-        const updateCourse = await Course.findByIdAndUpdate(id, { name }, { new: true });
+        const updateCourse = await Course.findByIdAndUpdate(id, { name }, { new: true })
 
         if (!updateCourse) return res.status(404).send({ success: false, message: 'Course not found' })
         
@@ -58,7 +58,7 @@ export const deleteCourse = async (req, res) => {
         if (!courseDeleted) return res.status(404).send({ success: false, message: 'Course not found' })
         
             
-        if (courseDeleted.name === process.env.COURSE_NAME) return res.status(403).send({ success: false, message: 'You cannot delete the Default course' })
+        if (courseDeleted.name === process.env.COURSE_NAME) return res.status(403).send({ success: false, message: 'You cannot delete the default course' })
 
         const defaultCourse = await Course.findOne({ name: process.env.COURSE_NAME })
         if (!defaultCourse) return res.status(500).send({ success: false, message: 'Default course not found. Cannot reassign posts.' })
