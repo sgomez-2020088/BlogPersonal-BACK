@@ -1,9 +1,9 @@
 {
-  "name": "opinionsystem",
+  "name": "blogpersonalsystem",
   "version": "1.0.0",
-  "description": "Opinion System",
+  "description": "Blog personal",
   "keywords": [
-    "opinion",
+    "Blog",
     "system",
     "2020088"
   ],
