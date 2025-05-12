@@ -43,7 +43,7 @@ export const updatePost = async(req, res)=>{
             return res.send({success: true, message: 'Post updated successfully', data})
 
     } catch (error) {
-        console.error(error);
+        console.error(error)
         return res.status(500).send({ success: false, message: 'General error updating post', error })
     }
 }
