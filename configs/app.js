@@ -22,7 +22,7 @@ const configs = (app)=>{
 const routes = (app)=>{
     app.use('/v1/course', courseRoutes)
     app.use('/v1/post', postRoutes)
-    app.use('/v1/commentary', commentRoutes)
+    app.use('/v1', commentRoutes)
 }
 
 export const initServer = async()=>{
