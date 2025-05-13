@@ -8,8 +8,8 @@ const postSchema = new Schema(
             maxLength: [100, 'Title cannot exceed 100 characters']
         },
         course: {
-            type: Schema.Types.ObjectId,
-            ref: 'Course',
+            type: String,
+            enum: ['TECNOLOGIA', 'TALLER', 'PRACTICA'], // Aquí defines los valores posibles para el curso
             required: [true, 'Course is required']
         },
         description: {
