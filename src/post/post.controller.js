@@ -7,9 +7,6 @@ export const addPost = async(req, res)=>{
     try{
         const data = req.body
 
-        const course = await Course.findOne({ _id : data.course })
-        if (!course) return res.status(403).send({ succes : false, message: 'Course not found'})
-
         const post = new Post(data)
 
         await post.save()
