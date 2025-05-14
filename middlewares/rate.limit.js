@@ -4,7 +4,7 @@ import rateLimit from "express-rate-limit"
 export const limiter = rateLimit(
     {
         windowMs : 15 * 60 * 1000, 
-        max : 100, 
+        max : 10000, 
         message : {
             message : `You're blocked GG, wait 15 minutes`
         }
