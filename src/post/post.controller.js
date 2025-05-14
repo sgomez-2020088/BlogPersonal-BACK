@@ -1,6 +1,5 @@
 import Post from './post.model.js'
 import Comment from '../comment/comment.model.js'
-import Course from '../course/course.model.js'
 
 
 export const addPost = async(req, res)=>{
@@ -18,32 +17,6 @@ export const addPost = async(req, res)=>{
     }
 }
 
-
-export const updatePost = async(req, res)=>{
-    try {
-        const {id} = req.body
-        const newdata = req.body
-
-        const updatedPost = await Post.findById(id)
-
-        if(!updatedPost) return res.status(404).send({ success: false, message: 'Post not found' })
-        
-        
-        if(newdata.course){
-            const course = await Course.findOne({ _id : newdata.course })
-            if (!course) return res.status(403).send({ succes : false, message: 'Course not found'})
-        }
-
-        const data = await Post.findByIdAndUpdate(id, newdata, {new : true})
-
-        if(!data) return res.status(404).send({success : false, message : 'Post not found'})
-            return res.send({success: true, message: 'Post updated successfully', data})
-
-    } catch (error) {
-        console.error(error)
-        return res.status(500).send({ success: false, message: 'General error updating post', error })
-    }
-}
 
 
 export const deletePost = async (req, res) => {

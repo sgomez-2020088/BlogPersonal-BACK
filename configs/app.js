@@ -4,9 +4,8 @@ import express from 'express'
 import morgan from 'morgan'
 import helmet from 'helmet'
 import cors from 'cors'
-import {initializeDatabase} from './initSetup.js'
+//import {initializeDatabase} from './initSetup.js'
 import { limiter } from '../middlewares/rate.limit.js'
-import courseRoutes from '../src/course/course.routes.js'
 import postRoutes from '../src/post/post.routes.js'
 import commentRoutes from '../src/comment/comment.routes.js'
 
@@ -20,7 +19,6 @@ const configs = (app)=>{
 }
 
 const routes = (app)=>{
-    app.use('/v1/course', courseRoutes)
     app.use('/v1/post', postRoutes)
     app.use('/v1', commentRoutes)
 }
@@ -31,7 +29,7 @@ export const initServer = async()=>{
         configs(app)
         routes(app)
 
-        await initializeDatabase()
+     
         app.listen(process.env.PORT)
         console.log(`Server runnig in port ${process.env.PORT}`)
     } catch (error) {

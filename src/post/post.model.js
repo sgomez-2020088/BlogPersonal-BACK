@@ -9,7 +9,7 @@ const postSchema = new Schema(
         },
         course: {
             type: String,
-            enum: ['TECNOLOGIA', 'TALLER', 'PRACTICA'], // Aquí defines los valores posibles para el curso
+            enum: ['TECNOLOGIA', 'TALLER', 'PRACTICA'], 
             required: [true, 'Course is required']
         },
         description: {
