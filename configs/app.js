@@ -7,7 +7,8 @@ import cors from 'cors'
 //import {initializeDatabase} from './initSetup.js'
 import { limiter } from '../middlewares/rate.limit.js'
 import postRoutes from '../src/post/post.routes.js'
-import commentRoutes from '../src/comment/comment.routes.js'
+import commentRoutes from '../src/comment/comment.routes.js' 
+
 
 const configs = (app)=>{
     app.use(express.json())
@@ -29,7 +30,7 @@ export const initServer = async()=>{
         configs(app)
         routes(app)
 
-     
+
         app.listen(process.env.PORT)
         console.log(`Server runnig in port ${process.env.PORT}`)
     } catch (error) {
