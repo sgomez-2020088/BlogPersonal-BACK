@@ -37,7 +37,7 @@ export const deletePost = async (req, res) => {
         console.error(error);
         return res.status(500).send({ success: false, message: 'General error deleting post', error })
     }
-};
+}
 
 export const getAllPost = async(req, res)=>{
     try{
