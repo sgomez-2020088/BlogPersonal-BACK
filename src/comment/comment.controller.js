@@ -25,25 +25,6 @@ export const addCommentary = async (req, res) => {
     }
 }
 
-export const updateCommentary = async(req, res)=>{
-    try {
-        const {id} = req.body
-        const newdata = req.body
-
-        const updatedComment = await Comment.findById(id)
-
-        if(newdata.post) return res.status(403).send({message : 'You cannot change the post in a commentary'})
-        
-        const data = await Comment.findByIdAndUpdate(id, newdata, {new : true})
-
-        if(!data) return res.status(404).send({success : false, message : 'Commentary not found'})
-            return res.send({success: true, message: 'Commentary updated successfully', data})
-
-    } catch (error) {
-        console.error(error)
-        return res.status(500).send({ success: false, message: 'General error updating commentary', error })
-    }
-}
 
 export const deleteCommentary = async (req, res) => {
     try {
@@ -66,7 +47,8 @@ export const deleteCommentary = async (req, res) => {
 export const getCommentsByPostId = async (req, res) => {
     try {
         const { postId } = req.params 
-        const comments = await Comment.find({ post: postId }) 
+        const comments = await Comment.find({ post: postId })
+        .sort({date: -1})
 
         if (comments.length === 0) return res.status(404).send({ success: false, message: 'No comments found for this post' })
 
